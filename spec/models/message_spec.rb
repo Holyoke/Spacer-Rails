@@ -29,11 +29,12 @@ RSpec.describe Message, :type => :model do
 	end
 
 	context "Corrections" do 
-
 		it "adds a space after a period between strings" do
 			message = Message.new(body: "abc.def")
 			answer = "abc. def"
 			
+			message.correct_text
+
 			expect(message.converted_text).to eq(answer)
 		end
 	end

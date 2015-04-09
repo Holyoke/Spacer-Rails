@@ -11,12 +11,11 @@
 #
 
 class Message < ActiveRecord::Base
-	validates :text, presence: true
+	validates :body, presence: true
 
-	attr_reader :converted_text, :corrections, :text
+	attr_accessor :converted_text, :corrections, :body
 
 	def correct_text
-		# converted_text = @text.gsub(".", ". ")
-		@text
+		self.converted_text = body.gsub(".", ". ")
 	end
 end
