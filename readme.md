@@ -21,3 +21,5 @@ Start by building the web service component of the system and then get as far as
 # Edge Cases
 - ". " already there
 - "abc." period is at the end
+- " . "
+- ".  "
