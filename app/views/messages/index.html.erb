@@ -16,7 +16,7 @@
     <% @messages.each do |message| %>
       <tr>
         <td><%= message.body %></td>
-        <td><%= message.corrections %></td>
+        <td><%= message.corrections.html_safe %></td>
         <td><%= message.converted_text %></td>
         <td><%= link_to 'Show', message %></td>
       </tr>

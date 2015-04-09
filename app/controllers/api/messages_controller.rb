@@ -9,6 +9,7 @@ class Api::MessagesController < ApplicationController
   # GET /messages/1
   # GET /messages/1.json
   def show
+    @message = Message.find(params[:id])
   end
 
   # GET /messages/new
@@ -34,6 +35,7 @@ class Api::MessagesController < ApplicationController
 
   private
   # Never trust parameters from the scary internet, only allow the white list through.
+
   def message_params
     params.permit(:body)
   end
