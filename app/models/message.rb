@@ -13,9 +13,8 @@
 class Message < ActiveRecord::Base
 	validates :body, presence: true
 
-	attr_accessor :converted_text, :corrections, :body
-
 	def correct_text
 		self.converted_text = body.gsub(".", ". ")
+		self.save!
 	end
 end
