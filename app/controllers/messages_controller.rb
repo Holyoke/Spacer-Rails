@@ -1,4 +1,5 @@
-class Api::MessagesController < ApplicationController
+class MessagesController < ApplicationController
+  before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   # GET /messages
   # GET /messages.json
@@ -23,18 +24,23 @@ class Api::MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        # format.html { redirect_to @message, notice: 'Message was successfully created.' }
+        format.html { redirect_to @message, notice: 'Message was successfully created.' }
         format.json { render :show, status: :created, location: @message }
       else
-        # format.html { render :new }
+        format.html { render :new }
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end
   end
 
   private
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def message_params
-    params.permit(:body)
-  end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_message
+      @message = Message.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def message_params
+      params.require(:message).permit(:body)
+    end
 end
