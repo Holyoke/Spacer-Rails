@@ -1,3 +1,3 @@
-var url = "localhost:3000/api/messages"
+var url = "/api/messages"
 var data = {body: "hi.there"}
-$.get(url);
+$.post(url, data);
