@@ -18,6 +18,6 @@ class Message < ActiveRecord::Base
 	protected
 	def correct_text
 		self.converted_text = body.gsub(".", ". ")
-		self.corrections = body.gsub(".", ">edit<")
+		self.corrections = body.gsub(".", "<mark>.</mark>")
 	end
 end
