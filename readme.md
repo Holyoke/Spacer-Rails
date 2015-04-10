@@ -1,43 +1,37 @@
-## Spacer
+## Continued Development
 
-Spacer will accept a body of text and correct any spacing issues involving periods. Ex. 
+The `master` branch is the result of 3 hours, this is the branch where I pursue developing the main feature of correctly formatting period spacing. This branch's solution iterates through each char and tries to determine whether to add a space or not.
 
+```ruby
+def correct_text
+	self.converted_text = ""
+	self.corrections = ""
+
+	body.each_char.with_index do |char, x|
+		if char == "."
+			check_period(x)
+		else
+			self.converted_text += char
+			self.corrections += char
+		end
+	end
+
+	nil
+end
+
+def check_period(x)
+	#check if the period is the last place
+	if x == (self.body.size - 1)
+		self.converted_text += "."
+		self.corrections += "."
+	#check if char after period is not a space
+	elsif self.body[x + 1] != " " 
+		self.converted_text += ". "
+		self.corrections += "<mark>.</mark>"
+	end
+
+	nil
+end
 ```
-What.No. => What. No.
-```
 
-On the front-end, /messages/:id will show the highlighted corrections and one can go to api/messages for JSON output.
-
-Messages can be created through the root page, or an AJAX POST request can be used on the url api/messages. To use, install and visit the root page to begin. Upon entering the input, the app will redirect you to the results. 
-
-## Installation
-
-1. Clone or download this repo
-2. Run `bundle install`
-3. Run `rake db:create db:migrate`
-4. Run `rails server`
-5. Go to [localhost:3000](localhost:3000)
-
-
-## Todos
-
--Add metadata to JSON output  
--Test and address edge cases  
-
-## Development
-The master branch is the result of the project within 3 hours. There is continued development in the `continued-development` branch, where I primarily continue developing the `Message`'s correction features with TDD. 
-
-### Message
-- body  
-- corrections  
-- converted_text  
-
-### Edge Cases
-[here]: https://github.com/Holyoke/Spacer-Rails/blob/master/spec/models/message_spec.rb "here"
-
-Model specs are used to develop the corrections feature. Check them out [here]
-
-- ". " already there  
-- "abc." period is at the end  
-- " . "  
-- ".  "  
+After I got it to pass `message_spec`, I decided to branch off and pursue an implemention using `#split`. 
