@@ -11,6 +11,7 @@
 #
 
 require 'rails_helper'
+require 'byebug'
 
 RSpec.describe Message, :type => :model do
 
