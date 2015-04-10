@@ -24,7 +24,4 @@ class Message < ActiveRecord::Base
 			self.corrections += "."
 		end
 	end
-
-	def check_period(x)
-	end
 end
