@@ -15,32 +15,16 @@ class Message < ActiveRecord::Base
 	before_validation :correct_text, on: :new
 
 	def correct_text
-		self.converted_text = ""
-		self.corrections = ""
+		self.converted_text = self.body.split(".").join(". ")
+		self.corrections = self.body.split(".").join("<mark>.</mark>")
 
-		body.each_char.with_index do |char, x|
-			if char == "."
-				check_period(x)
-			else
-				self.converted_text += char
-				self.corrections += char
-			end
+		#check if there's a period at the end
+		if self.body.last == "."
+			self.converted_text += "."
+			self.corrections += "."
 		end
-
-		nil
 	end
 
 	def check_period(x)
-		#check if the period is the last place
-		if x == (self.body.size - 1)
-			self.converted_text += "."
-			self.corrections += "."
-		#check if char after period is not a space
-		elsif self.body[x + 1] != " " 
-			self.converted_text += ". "
-			self.corrections += "<mark>.</mark>"
-		end
-
-		nil
 	end
 end
