@@ -13,9 +13,8 @@
 class Message < ActiveRecord::Base
 	validates :body, presence: true
 
-	before_validation :correct_text
+	before_validation :correct_text, on: :new
 
-	protected
 	def correct_text
 		self.converted_text = body.gsub(".", ". ")
 		self.corrections = body.gsub(".", "<mark>.</mark>")

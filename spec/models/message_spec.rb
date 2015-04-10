@@ -33,6 +33,7 @@ RSpec.describe Message, :type => :model do
 		it "adds a space after a period between strings" do
 			message = Message.new(body: "abc.def")
 			answer = "abc. def"
+			message.correct_text
 			
 			expect(message.converted_text).to eq(answer)
 		end
@@ -40,15 +41,17 @@ RSpec.describe Message, :type => :model do
 		it "doesn't add a space at the end of a sentence" do 
 			message = Message.new(body: "abc.def.")
 			answer = "abc. def."
-			
 			message.correct_text
+			
 
 			expect(message.converted_text).to eq(answer)
 		end
 
-		it "doesn't add a space to an already correctly formatted string"
+		it "doesn't add a space to an already correctly formatted string" do
+		end
 
 	end
+
 
 
 end
