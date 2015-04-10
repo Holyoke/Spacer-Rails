@@ -1,4 +1,4 @@
-## Exercise
+## Spacer
 
 Spacer will accept a body of text and correct any spacing issues involving periods. Ex. 
 
@@ -8,7 +8,7 @@ What.No. => What. No.
 
 On the front-end, /messages/:id will show the highlighted corrections and one can go to api/messages for JSON output.
 
-Messages can be created through the root page, or an AJAX POST request can be used on the url api/messages.
+Messages can be created through the root page, or an AJAX POST request can be used on the url api/messages. To use, install and visit the root page to begin. Upon entering the input, the app will redirect you to the results. 
 
 ## Installation
 
@@ -24,14 +24,14 @@ Messages can be created through the root page, or an AJAX POST request can be us
 -Add metadata to JSON output  
 -Test and address edge cases  
 
-## Development
+# Development
 
-#Text
+##Text
 - text  
 - corrections  
 - converted_text  
 
-# Edge Cases
+## Edge Cases
 - ". " already there  
 - "abc." period is at the end  
 - " . "  
