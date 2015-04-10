@@ -29,7 +29,7 @@ RSpec.describe Message, :type => :model do
 		end
 	end
 
-	context "Corrections and Edge Cases" do 
+	context "Converted Text and Edge Cases" do 
 
 		it "adds a space after a period between strings" do
 			message = Message.new(body: "abc.def")
@@ -48,10 +48,40 @@ RSpec.describe Message, :type => :model do
 			expect(message.converted_text).to eq(answer)
 		end
 
-		it "doesn't add a space to an already correctly formatted string" 
+		it "doesn't add a space to an already correctly formatted periods" do
+			message = Message.new(body: "abc. def.ghi")
+			answer = "abc. def. ghi"
+			message.correct_text
 
+			expect(message.converted_text).to eq(answer)
+		end
 	end
 
+	context "Corrections and Edge Cases" do 
 
+		it "adds a space after a period between strings" do
+			message = Message.new(body: "abc.def")
+			answer = "abc<mark>.</mark>def"
+			message.correct_text
+			
+			expect(message.corrections).to eq(answer)
+		end
 
+		it "doesn't add a space at the end of a sentence" do 
+			message = Message.new(body: "abc.def.")
+			answer = "abc<mark>.</mark>def."
+			message.correct_text
+			
+
+			expect(message.corrections).to eq(answer)
+		end
+
+		it "doesn't add a space to an already correctly formatted periods" do
+			message = Message.new(body: "abc<mark>.</mark>def.ghi")
+			answer = "abc<mark>.</mark>def<mark>.</mark>ghi"
+			message.correct_text
+
+			expect(message.corrections).to eq(answer)
+		end
+	end
 end
