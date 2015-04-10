@@ -14,7 +14,7 @@ Messages can be created through the root page, or an AJAX POST request can be us
 
 1. Clone or download this repo
 2. Run `bundle install`
-3. Run `rake db:create db:migrate db:seed`
+3. Run `rake db:create db:migrate`
 4. Run `rails server`
 5. Go to [localhost:3000](localhost:3000)
 
@@ -32,6 +32,10 @@ Messages can be created through the root page, or an AJAX POST request can be us
 - converted_text  
 
 ## Edge Cases
+[here]: https://github.com/Holyoke/Spacer-Rails/blob/master/spec/models/message_spec.rb "here"
+
+Model specs are used to develop the corrections feature. Check them out [here]
+
 - ". " already there  
 - "abc." period is at the end  
 - " . "  
