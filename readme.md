@@ -27,7 +27,7 @@ Messages can be created through the root page, or an AJAX POST request can be us
 ## Development
 The master branch is the result of the project within 3 hours. There is continued development in the `continued-development` branch, where I primarily continue developing the `Message`'s correction features with TDD. 
 
-### Message
+### `Message` Model
 - body  
 - corrections  
 - converted_text  
