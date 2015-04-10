@@ -33,7 +33,7 @@ The master branch is the result of the project within 3 hours. There is continue
 - converted_text  
 
 ### Edge Cases
-[here]: https://github.com/Holyoke/Spacer-Rails/blob/master/spec/models/message_spec.rb "here"
+[here]: https://github.com/Holyoke/Spacer-Rails/blob/continued-development/spec/models/message_spec.rb "here"
 
 Model specs are used to develop the corrections feature. Check them out [here]
 
