@@ -24,14 +24,15 @@ Messages can be created through the root page, or an AJAX POST request can be us
 -Add metadata to JSON output  
 -Test and address edge cases  
 
-# Development
+## Development
+The master branch is the result of the project within 3 hours. There is continued development in the `continued-development` branch, where I primarily continue developing the `Message`'s correction features with TDD. 
 
-##Text
-- text  
+### Message
+- body  
 - corrections  
 - converted_text  
 
-## Edge Cases
+### Edge Cases
 [here]: https://github.com/Holyoke/Spacer-Rails/blob/master/spec/models/message_spec.rb "here"
 
 Model specs are used to develop the corrections feature. Check them out [here]

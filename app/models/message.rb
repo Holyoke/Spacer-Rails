@@ -8,7 +8,6 @@
 #  converted_text :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-require "byebug"
 
 class Message < ActiveRecord::Base
 	validates :body, presence: true
@@ -19,30 +18,25 @@ class Message < ActiveRecord::Base
 		self.converted_text = ""
 		self.corrections = ""
 
-		body.each_char.with_index do |c, i|
-			if c == "."
-				check_period(i)
+		body.each_char.with_index do |char, x|
+			if char == "."
+				check_period(x)
 			else
-				self.converted_text += c
-				self.corrections += c
+				self.converted_text += char
+				self.corrections += char
 			end
 		end
 
 		nil
 	end
 
-	def letter?(lookAhead)
-	  lookAhead =~ /[A-Za-z]/
-	end
-
-	def check_period(i)
-
+	def check_period(x)
 		#check if the period is the last place
-		if self.body[i] == self.body.last
+		if x == (self.body.size - 1)
 			self.converted_text += "."
 			self.corrections += "."
 		#check if char after period is not a space
-		elsif self.body[i + 1] != " " 
+		elsif self.body[x + 1] != " " 
 			self.converted_text += ". "
 			self.corrections += "<mark>.</mark>"
 		end
