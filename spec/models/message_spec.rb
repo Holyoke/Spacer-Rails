@@ -48,8 +48,7 @@ RSpec.describe Message, :type => :model do
 			expect(message.converted_text).to eq(answer)
 		end
 
-		it "doesn't add a space to an already correctly formatted string" do
-		end
+		it "doesn't add a space to an already correctly formatted string" 
 
 	end
 

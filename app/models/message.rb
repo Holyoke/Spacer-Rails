@@ -38,11 +38,11 @@ class Message < ActiveRecord::Base
 	def check_period(i)
 
 		#check if the period is the last place
-		if self.body[i + 1].nil?
+		if self.body[i] == self.body.last
 			self.converted_text += "."
 			self.corrections += "."
-		#check if slot after period is a letter AND it's not the last place
-		elif self.body[i + 1] != " " 
+		#check if char after period is not a space
+		elsif self.body[i + 1] != " " 
 			self.converted_text += ". "
 			self.corrections += "<mark>.</mark>"
 		end
