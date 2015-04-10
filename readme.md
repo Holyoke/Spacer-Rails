@@ -1,25 +1,38 @@
 ## Exercise
 
-Build a web service (e.g. one that responds with JSON) in Ruby or Javascript to convert arbitrary text so that it contains only 1 space after a period between sentences. The response should contain the converted text along with meta data describing the corrections made.
+Spacer will accept a body of text and correct any spacing issues involving periods. Ex. 
 
-Then, build a web based front-end that will submit arbitrary text to this service via AJAX and show the result. Additionally, the rendered result should include a visual representation of where corrections were made in the text.
+```
+What.No. => What. No.
+```
 
-Accuracy of the conversion isn't necessarily important (i.e. don't worry about what is and is not a sentence), instead you will be judged on the following criteria:
-Clarity and conciseness of code
-Ruby / Javascript best practices
-HTTP best practices
-Handling of edge cases
-Start by building the web service component of the system and then get as far as you can with the front-end piece. Don't worry if you can't finish it
+On the front-end, /messages/:id will show the highlighted corrections and one can go to api/messages for JSON output.
+
+Messages can be created through the root page, or an AJAX POST request can be used on the url api/messages.
+
+## Installation
+
+1. Clone or download this repo
+2. Run `bundle install`
+3. Run `rake db:create db:migrate db:seed`
+4. Run `rails server`
+5. Go to [localhost:3000](localhost:3000)
+
+
+## Todos
+
+-Add metadata to JSON output  
+-Test and address edge cases  
 
 ## Development
 
 #Text
-- text
-- corrections
-- converted_text
+- text  
+- corrections  
+- converted_text  
 
 # Edge Cases
-- ". " already there
-- "abc." period is at the end
-- " . "
-- ".  "
+- ". " already there  
+- "abc." period is at the end  
+- " . "  
+- ".  "  
